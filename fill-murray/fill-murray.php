@@ -77,11 +77,11 @@ function fill_murray_options() {
 	?>
 <div class="postbox" style="padding: 30px;">
     <label for="fill-murray-width">Width (400-600px):</label>
-	<input type="number" name="fill-murray-width" min="400" max="600" value="<?php echo stripslashes_deep ( esc_attr ( get_option ( 'fill-murray-width' ) ) ); ?>" />
+	<input type="number" name="fill-murray-width" min="400" max="600" value="<?php echo get_option ( 'fill-murray-width' ); ?>" />
 </div>
 <div class="postbox" style="padding: 30px;">
     <label for="fill-murray-height">Height (400-600px):</label>
-	<input type="number" name="fill-murray-height" min="400" max="600" value="<?php echo stripslashes_deep ( esc_attr ( get_option ( 'fill-murray-height' ) ) ); ?>" />
+	<input type="number" name="fill-murray-height" min="400" max="600" value="<?php echo get_option ( 'fill-murray-height' ); ?>" />
 </div>
 <?php
 }
@@ -95,7 +95,7 @@ add_filter ( 'the_content', 'fill_murray_content' );
 
 function fill_murray_content($content) {
     if(get_option('fill-murray-width') && get_option('fill-murray-height')){
-        return $content . '<img src="https://www.fillmurray.com/' . stripslashes_deep ( esc_attr ( get_option ( 'fill-murray-width' ) ) ) . '/' . stripslashes_deep ( esc_attr ( get_option ( 'fill-murray-height' ) ) ) . ' "/>';
+        return $content . '<img src="https://www.fillmurray.com/' . get_option ( 'fill-murray-width' ) . '/' . get_option ( 'fill-murray-height' ) . ' "/>';
     } else {
         return $content;
     }
